@@ -5,3 +5,6 @@
 *.r1cs
 *.sym
 proof.json
+*.wasm
+*witness.js
+*calculator.js
