@@ -2,6 +2,10 @@ pragma circom  2.1.6;
 
 include "node_modules/circomlib/circuits/comparators.circom";
 
+function invert(x) {
+    return 1 / x;
+}
+
 template Average(n) {
     signal input in[n];
     signal output out;
@@ -13,7 +17,7 @@ template Average(n) {
 
     signal denominator_inverse;
 
-    denominator_inverse <-- 1 / n;
+    denominator_inverse <-- invert(n);
 
     component isEqual = IsEqual();
 
