@@ -8,3 +8,5 @@ proof.json
 *.wasm
 *witness.js
 *calculator.js
+node_modules
+package*
