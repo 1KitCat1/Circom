@@ -1,6 +1,6 @@
 pragma circom  2.1.6;
 
-include "node_modules/circomlib/circuits/comparators.circom";
+include "../node_modules/circomlib/circuits/comparators.circom";
 
 function invert(x) {
     return 1 / x;
