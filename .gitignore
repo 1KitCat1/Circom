@@ -1,6 +1,3 @@
-*.ptau
-*.zkey
-./*_js
 ./*_cpp
 *.r1cs
 *.sym
@@ -9,4 +6,8 @@ proof.json
 *witness.js
 *calculator.js
 node_modules
-package*
+package-lock.json
+package.json
+*.zkey
+*.ptau
+*.wtns
