@@ -12,4 +12,4 @@ template Powers(n) {
     }
 }
 
-component main = Powers(10);
+component main {public [base]} = Powers(10);
