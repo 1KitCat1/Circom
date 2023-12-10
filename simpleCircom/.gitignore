@@ -1,2 +1,7 @@
 *.ptau
 *.zkey
+/*_js
+/*_cpp
+*.r1cs
+*.sym
+proof.json
