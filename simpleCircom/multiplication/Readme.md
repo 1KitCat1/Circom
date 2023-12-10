@@ -6,13 +6,13 @@ Compilation:
 
 With these options we generate three types of files:
 
-`--r1cs`: it generates the file **multiplier2.r1cs** that contains the R1CS constraint system of the circuit in binary format.
+`--r1cs`: it generates the file **multiplication.r1cs** that contains the R1CS constraint system of the circuit in binary format.
 
-`--wasm`: it generates the directory **multiplier2_js** that contains the Wasm code (multiplier2.wasm) and other files needed to generate the witness.
+`--wasm`: it generates the directory **multiplication_js** that contains the Wasm code (multiplier2.wasm) and other files needed to generate the witness.
 
-`--sym` : it generates the file **multiplier2.sym**, a symbols file required for debugging or for printing the constraint system in an annotated mode.
+`--sym` : it generates the file **multiplication.sym**, a symbols file required for debugging or for printing the constraint system in an annotated mode.
 
-`--c` : it generates the directory **multiplier2_cpp** that contains several files (multiplier2.cpp, multiplier2.dat, and other common files for every compiled program like main.cpp, MakeFile, etc) needed to compile the C code to generate the witness.
+`--c` : it generates the directory **multiplication_cpp** that contains several files (multiplier2.cpp, multiplier2.dat, and other common files for every compiled program like main.cpp, MakeFile, etc) needed to compile the C code to generate the witness.
 
 Computing the witness:
 
