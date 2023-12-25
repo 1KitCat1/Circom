@@ -11,3 +11,4 @@ package.json
 *.zkey
 *.ptau
 *.wtns
+.DS_Store
