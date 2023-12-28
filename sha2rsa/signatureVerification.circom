@@ -5,24 +5,26 @@ include "../node_modules/circomlib/circuits/sha256/sha256.circom";
 include "../node_modules/circomlib/circuits/bitify.circom";
 
 template SignatureVerification(N) {
-    signal input in;
-    signal output out;
-    
-    component num2Bits = Num2Bits(N);
-
-    num2Bits.in <== in;
+    signal input in[N];
+    signal output out[256];
 
     component hasher = Sha256(N);
 
-    component bits2Num = Bits2Num(256);
+    hasher.in <== in;
 
-    hasher.in <== num2Bits.out;
+    component bits2NumFirst = Bits2Num(128);
+    component bits2NumSecond = Bits2Num(128);
 
-    bits2Num.in <== hasher.out;
-    
+    for (var i = 0; i < 128; i++) {
+        bits2NumFirst.in[127-i] <== hasher.out[i];
+    }
 
-    log(bits2Num.out);
-    out <== bits2Num.out;
+    for (var i = 0; i < 128; i++) {
+        bits2NumSecond.in[127-i] <== hasher.out[128 + i];
+    }
+
+    out[0] <== bits2NumFirst.out;
+    out[1] <== bits2NumSecond.out;
 }
 
-component main = SignatureVerification(256);
+component main = SignatureVerification(8);

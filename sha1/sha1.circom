@@ -13,7 +13,7 @@ template Sha1(nBits) {
     var bitsLastBlock;
 
     nBlocks = ((nBits + 64) \ 512) + 1;    
-
+    log(nBlocks);
     signal paddedIn[nBlocks * 512];
 
     for (k=0; k<nBits; k++) {
@@ -28,6 +28,10 @@ template Sha1(nBits) {
 
     for (k=0; k<64; k++) {
         paddedIn[nBlocks*512-k-1] <== (nBits >> k)&1;
+    }
+
+    for (k = 0; k < 512; k++) {
+        log(paddedIn[k]);
     }
 
     component ha0 = H(0);
@@ -66,7 +70,12 @@ template Sha1(nBits) {
         
     }
 
+    // component bits2Num = Bits2Num(160);
+
     for (k=0; k<160; k++) {
         out[k] <== sha1compression[nBlocks-1].out[k];
+        // bits2Num.in[k] <== sha1compression[nBlocks-1].out[k];
     }
+
+    // out <== bits2Num.out;
 }

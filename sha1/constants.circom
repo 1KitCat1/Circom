@@ -3,6 +3,7 @@ pragma circom 2.1.3;
 include "../node_modules/circomlib/circuits/bitify.circom";
 
 template H(x) {
+
     signal output out[32];
     var c[5] = [
         0x67452301,
@@ -18,6 +19,7 @@ template H(x) {
     for (var k=0; k<32; k++) {
         out[k] <== bitify.out[31-k];
     }
+
 }
 
 template K(t) {
@@ -47,4 +49,5 @@ template K(t) {
     for (var k=0; k<32; k++) {
         out[k] <== bitify.out[31-k];
     }
+
 }

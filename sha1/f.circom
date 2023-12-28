@@ -16,6 +16,7 @@ template f_t(t) {
      component ch = Ch_t(32);
 
      var k;
+     
 
      // ch(x, y, z)
      for (k=0; k<32; k++) {
@@ -25,7 +26,7 @@ template f_t(t) {
      }
 
      // parity(x, y, z)
-     for (k=0; k<32; k++) {
+     for (k=0; k < 32; k++) {
           parity.a[k] <== b[k];
           parity.b[k] <== c[k];
           parity.c[k] <== d[k];
@@ -39,18 +40,25 @@ template f_t(t) {
      }
 
      if (t <= 19) {
-          for (k=0; k<32; k++) {
+          for (k=0; k <32; k++) {
                out[k] <== ch.out[k];
           }
+
      } else {
+
           if (t <= 39 || t >= 60) {
-               for (k=0; k<32; k++) {
+               
+               for (k=0; k < 32; k++) {
                     out[k] <== parity.out[k];
                }
+
           } else {
+
                for (k=0; k<32; k++) {
                     out[k] <== maj.out[k];
                }
+               
           }
      }
+
 }
