@@ -30,9 +30,9 @@ template Sha1(nBits) {
         paddedIn[nBlocks*512-k-1] <== (nBits >> k)&1;
     }
 
-    for (k = 0; k < 512; k++) {
-        log(paddedIn[k]);
-    }
+    // for (k = 0; k < 512; k++) {
+    //     log(paddedIn[k]);
+    // }
 
     component ha0 = H(0);
     component hb0 = H(1);
